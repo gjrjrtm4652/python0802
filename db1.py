@@ -22,3 +22,6 @@ cur.executemany("insert into PhoneBook values(?,?);",(datalist))
 cur.execute("select * from PhoneBook;")
 for row in cur:
     print(row)
+
+#정상적으로 작업 완료
+con.commit()
