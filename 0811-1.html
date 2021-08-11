@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JAVA</title>
+    <style>
+        div {
+            width: 320px;
+            height: 240px;
+            background-color: aqua;
+            margin: 12px;
+            font-size: large;
+            transition: all 1s ease-in-out 0.5s;
+        }
+        div:hover{
+            background-color: blueviolet;
+            transform: scale(1.0,2.0);
+            
+        }
+        div#rotate:hover{
+            transform: rotate(45deg);
+
+        }
+        div#skew:hover{
+          transform: rotate(30deg);
+        }
+        div#move:hover{
+         transform: translate(24px,-40px);
+        }
+    </style>
+</head>
+<body>
+    <div> normal </div>
+    <div id ="scale">scale </div>
+    <div id ="rotate"> rotate </div>
+    <div id ="skew"> skew </div>
+    <div> move</div>
+    
+
+</body>
+</html>>
