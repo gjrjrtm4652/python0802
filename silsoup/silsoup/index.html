@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- HTML comment-->
+    <script>
+        // 1. 함수를 전달, 반환할 수 있다.
+        
+        // 2. 함수는 객체다.. 사실 다 객체다...
+        //  -   객체는 reference 변수로 다룬다.
+        // var obj = {
+        //     nick : 'mario',
+        //     phone : '1010-2020',
+        //     // scope function
+        //     print : function(){
+        //         console.log( this.nick, this.phone);
+        //     }
+        // };
+        // // 이름() <-- 함수 호출
+        // var obj2 = obj;// reference copy
+        // obj2.nick = 'william';
+        // obj.print();
+
+        // console.log(obj);
+        // obj.print();
+        // // private
+        // obj.address = 'busan dong 19';
+        // console.log(obj);
+
+        // // function use like class
+        // var Book = function(){
+        //     console.log('Book');
+        //     this.title = 'javascript';
+        // }
+        // // prototype : 공통
+        // Book.prototype.print = function(){
+        //     console.log(this.title);
+        // }
+        // var book1 = new Book();
+        // var book2 = new Book();// constructor
+        // console.log( book1 );
+        // console.log( book2 );
+        // book1.print();
+
+        // // setter
+        // book2.title = 'python';
+        // book1.print();
+        // book2.print();
+
+        // // ES6
+        // class Member{
+        //     constructor(){
+        //         this.title = 'instance of Member';
+        //     }
+        // }
+        // var user = new Member();
+        // console.log( user );
+        // user.title = 'member in site';
+        // console.log( user );
+        
+        // 3. access data value
+        var scores = [10,50,20,90];
+        for(let i=0; i<scores.length; i+=1){
+            console.log( scores[i] );
+        }
+        var student = { name:'mario', major:'mechanic'};
+        console.log( student.name , student.major);
+        // key-value
+        console.log( student['name'] , student['major']);
+        var tutor = [{name:'jang'},{name:'kims'},{name:'park'}]
+        console.log( tutor[0]['name'] );
+        console.log( tutor[0].name );
+
+        // 4. JSON ( 내장 객체 )
+        const json = '{"result":true, "count":42 }';// string
+        // string to object
+        const jsonObj = JSON.parse(json);
+        console.log(json);
+        console.log(jsonObj);
+
+        // object to string
+        const pos = { x: 5, y:12};
+        const jsonPos = JSON.stringify(pos);
+        console.log( jsonPos );
+
+
+    </script>
+
+<!-- 
+<p>1. image 교체</p>
+<p>2. class 바꾸는 이벤트</p>
+<p>3. mouse event </p>
+<p>4. transform</p>
+<p>5. slide and carousel</p>
+<p>6. show room</p> 
+-->
+
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>AJAX 기초 사용법 : vanila js</h1>
+    <script>
+        var xhr = new XMLHttpRequest();
+        // AJAX : HTTP required info
+        //  URL + method ( form )
+        const reqUrl = 'http://www.naver.com';
+        const reqMethod = 'GET';
+        let data = null;
+
+        xhr.open(reqMethod, reqUrl);
+        xhr.send(data);
+        // 네트워크 연결 상태 변하는 이벤트
+        xhr.onreadystatechange = function(){
+            let stateMessage = '';
+            switch(xhr.readyState){
+                case 0: stateMessage = '초기화되지 않음';
+                    break;
+                case 1: stateMessage = '요청 전송 중';
+                    break;
+                case 2: stateMessage = '응답 대기 중';
+                    break;
+                case 3: stateMessage = 'data 를 가져오는 중';
+                    break;
+                case 4: stateMessage = '수신 완료';
+                    break;
+            }
+            if( xhr.readyState == 4 && xhr.status == 200){
+                console.log(stateMessage);
+                console.log(xhr.status);// HTTP code
+            }else{
+                // error
+                console.log('error : ', xhr.status)
+            }
+            // 200 OK
+            // 30x, 40x, 50x
+        };
+
+        // close
+
+    </script>
+</body>
+</html>

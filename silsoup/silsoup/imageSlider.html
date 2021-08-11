@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .hide {
+            display: none;
+        }
+        .show {
+            display: block;
+        }
+    </style>
+
+</head>
+<body>
+    <h1>Image Show Room</h1>
+
+    <div id="showArea">
+        <img class="show" src="img/1.png" alt="">
+    </div>
+    <button id="btn1">show/hide</button>
+    <button id="btn2">next</button>
+    <button id="btn3">prev</button>
+
+    <script>
+        var img = document.querySelector('#showArea img');
+        var current = 0;
+        var direction = 1;// or -1
+        var maxIndex = 51;
+        var minIndex = 1;
+        function changeImageSrc(){
+            current += direction;
+            if(current > maxIndex){
+                current = minIndex;
+            }
+            if(current < minIndex){
+                current = maxIndex;
+            }
+            img.src = 'img/'+current+'.png';
+        }
+        window.addEventListener('load', function(){
+            // 일정 시간마다 호출되는 함수 등록
+            timerId = setInterval(changeImageSrc, 200);
+            var btn2 = document.querySelector('#btn2');
+            btn2.addEventListener('click', function(){
+                direction = 1;
+            });
+            var btn3 = document.querySelector('#btn3');
+            btn3.addEventListener('click', function(){
+                direction = -1;
+            });
+        });
+        // clearInterval(timerId);
+
+        // var btn1 = document.querySelector('#btn1');
+        // btn1.addEventListener('click', toggle);
+        // var btn2 = document.querySelector('#btn2');
+        // btn2.addEventListener('click', next);
+        // var btn3 = document.querySelector('#btn3');
+        // btn3.addEventListener('click', prev);
+        
+        // var current = 1;
+        // var maxIndex = 51;
+        // var minIndex = 1;
+        // function next(){
+        //     current += 1;
+        //     // min ~ max : max-min+1 연속하는 정수의 개수
+        //     // R(>=0) % (max-min+1) + min <-- min ~ max
+        //     current %= maxIndex+1;// range ? 
+        //     img.src = 'img/'+current+'.png';
+        // }
+        // function prev(){
+        //     current -= 1;
+        //     if( current < minIndex){
+        //         current = maxIndex;
+        //     }
+        //     img.src = 'img/'+current+'.png';
+        // }
+
+        // function toggle(){
+        //     if(img.className == 'show'){
+        //         img.className = 'hide';
+        //     }else{
+        //         img.className = 'show';
+        //     }
+        // }
+
+        // img.classList.add('car');
+        // console.log( img.classList.contains('car') );
+        // img.classList.remove('car');
+        // img.classList.toggle('car');
+        // console.log(img.classList);
+        // img.classList.toggle('car');
+        // console.log(img.classList);
+        // console.log(img.className);
+        // img.className = 'hide';
+        // console.log(img.className);
+
+
+//         // 현재 페이지 로딩되면 실행될 함수를 등록
+//         window.addEventListener('load', function(){
+//             var div = document.querySelector('#showArea');
+//             imageCount = 51;// 개 0 ~ 50, 1 ~ 51
+//             // for(let no=1; no <= imageCount; no+=1){
+//             //     div.innerHTML += 
+//             //     '<img src="img/'+no+'.png" alt="">'
+//             //     ;
+//             // }
+//             for(let no=1; no <= imageCount; no+=1){
+//                 div.innerHTML += '<img>';
+//             }
+//             var imgs = div.querySelectorAll('img');
+//             let no = 1;
+//             imgs.forEach(function(img){
+//                 let value = 'img/'+no+'.png';
+// //                img.setAttribute('src',value);                
+//                 img.src = value;
+//                 // 요소명.속성명 = 속성값;
+//                 no += 1;
+//             });
+
+//         });
+
+
+    </script>
+
+</body>
+</html>
+

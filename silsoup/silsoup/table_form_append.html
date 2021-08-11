@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>학생 접속 상황 표</h1>
+    <div>
+        <table>
+            <tr>
+                <td>번호</td>
+                <td>이름</td>
+                <td>위치</td>
+                <td>상태</td>
+            </tr>
+        </table>
+    </div>
+
+    <div>
+        <form action="" onsubmit="return addStudent();">
+            번호 : <input type="text" name="no"><br>
+            이름 : <input type="text" name="nick"><br>
+            위치 : <input type="text" name="pos"><br>
+            상태 : <input type="text" name="state"><br>
+            <input type="submit" value="추가">
+        </form>
+    </div>
+    
+    <script>
+        function addStudent(){
+            let no = document.querySelector('input[name="no"]').value;
+            let nick = document.querySelector('input[name="nick"]').value;
+            let pos = document.querySelector('input[name="pos"]').value;
+            let state = document.querySelector('input[name="state"]').value;
+            // 1. tr
+            const tr = '<tr><td>'+no+'</td><td>'+nick+'</td><td>'+pos+'</td><td>'+state+'</td></tr>';
+            const table = document.getElementsByTagName('table')[0];
+            table.innerHTML += tr;// 기존 값 + 추가 값
+
+            // 2. create element
+  var div = document.createElement('tr');// in memory
+  var div = document.createElement('td');// in memory
+  var div = document.createElement('td');// in memory
+  var div = document.createElement('td');// in memory
+  var div = document.createElement('td');// in memory
+            table.appendChild(tr);
+            tr.appendChild(td);
+            tr.appendChild(td);
+            tr.appendChild(td);
+            tr.appendChild(td);
+  
+            // let std = {
+            //     "no":no,
+            //     "nick":nick,
+            //     "pos":pos,
+            //     "state":state,
+            // };
+            // console.log(std);
+            return false;
+        }
+
+
+        // 요소를 생성한다.
+        // '<div>' 'div' div
+        // var div = document.createElement('div');// in memory
+        // div.innerHTML = 'created div element by script';
+        // // 어디 body
+        // document.body.appendChild(div); 
+
+//        document.body.removeChild(div);
+
+        // 요소를 선택한다.
+        // access element in page(document)
+        // var navi = document.getElementById('navi');
+        // navi.innerHTML = '<img src="https://i.pinimg.com/originals/d5/08/4a/d5084aea1bb1a52c5f34758730bb3447.gif">';
+        // var img = document.getElementsByTagName('img');
+        // var foods = document.getElementsByClassName('food');
+        // and
+        // var elems = document.getElementsByTagName('div');
+        // var result = elems.getElementsByClassName('food');
+
+//         var navi = document.querySelector('#navi')
+//         var divs = document.querySelectorAll('div')
+//         var foods = document.querySelectorAll('.food')
+// //        var result = document.querySelectorAll('div.food')
+//         var result = document.querySelector('div[data-group="main"]')
+//         if( result === null){
+//             alert('contact system admin');
+//         }
+
+
+
+
+    </script>
+</body>
+</html>

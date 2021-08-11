@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            text-align: center;
+        }
+        nav {
+            /* 상 우 하 좌*/
+            margin: 4px 0px;/*상하, 좌우*/
+        }
+        #player {
+            width: 720px;
+            margin: 20px auto;
+            padding: 4px;
+            background-color: bisque;
+            border: 1px solid #666;/* 66 66 66 */
+            border-radius: 4px;/*동그란 모서리*/
+        }
+        #buttons {
+            float: left;
+            width: 84px;
+            height: 20px;
+        }
+        #bar {
+            float: left;
+            position: relative;
+            width: 600px;
+            height: 16px;
+            padding: 2px;
+            border: 1px solid green;
+            background: #eee;
+        }
+        #progress {
+            position: absolute;
+            width: 0px;
+            height: 16px;
+            background: rgb(0,0,125);
+        }
+
+    </style>
+</head>
+<body>
+    <h2>활용예제</h2>
+    <!-- <img src="img/geo.jpg" alt=""> -->
+
+    <section id="player">
+        <video id="media" src="img/earth.mp4"
+            width="100%" controls></video>
+        <nav>
+            <div id="buttons">
+                <button type="button" id="play">Play</button>
+            </div>
+            <div id="bar">
+                <div id="progress"></div>                
+            </div>
+            <!-- 요소들이 왼쪽으로 붙지 않게 끊기-->
+            <div style="clear:both;"></div>
+        </nav>
+    </section>
+
+    <script>
+//        window.onload = function(){};
+        window.addEventListener('load', init, false);
+        function init(){
+            maxim = 600;// progress's length
+            media = document.querySelector('#media');
+            play = document.getElementById('play');
+            bar = document.querySelector('#bar');
+            progress = document.querySelector('#progress');
+
+//            play.onclick = push;
+            play.addEventListener('click', push, false);
+            bar.addEventListener('click', move, false);
+        }
+
+        function push(){
+            // 재생이 멈춘 상태, 재생 중인 상태
+            if( !media.paused && !media.ended ){
+                media.pause();
+                play.innerHTML = 'Play';
+                window.clearInterval(loop);
+            }else{
+                media.play();
+                play.innerHTML = 'Pause';
+                // status 함수를 1초마다 호출
+                loop = setInterval(status, 1000);
+            }
+        }
+        function status(){
+            if( !media.ended ){
+                var size = parseInt(
+                    maxim * ( media.currentTime / media.duration )
+                );
+                // progress width = 200px
+                progress.style.width = size+'px';
+            }else{
+                progress.style.width='0px';
+                play.innerHTML = 'Play';
+                window.clearInterval(loop);
+            }
+        }
+
+        function move(e){
+            // 마우스 클릭된 위치를 찾자
+            if( !media.paused && !media.ended){
+                var mouseX = e.pageX - bar.offsetLeft;
+                var newtime = ( mouseX / maxim ) * media.duration;
+                media.currentTime = newtime;
+                progress.style.width = mouseX+'px';
+            }
+
+        }
+
+
+        // navigator.geolocation.getCurrentPosition( handler );
+        // function handler( position ){
+        //     var lat = Number(position.coords.latitude);
+        //     var long = Number(position.coords.longitude);
+        //     console.log(lat, long);
+        //     // map api : 
+        //     window.open('https://www.google.com/maps/@'+lat+','+long+', 16z');
+        // }
+    </script>
+</body>
+</html>
