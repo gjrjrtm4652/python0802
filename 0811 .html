@@ -71,10 +71,7 @@
             
             slider.style.cursor = "grab";
         });
-        slider.addEventListener('mouseup',function(){
-            pressed = false;
-            slider.style.cursor = " ";
-        });
+        
         slider.addEventListener('mousemove',function(e){
             if(!pressed)
             {
@@ -82,7 +79,11 @@
             }
             s.preventDefault();
             x = e.offsetx;
-            sliderInner.style.left = `${x - startx} +'px';
+            sliderInner.style.left = `${x - startx} +'px'`;
+        });
+        slider.addEventListener('mouseup',function(){
+            pressed = false;
+            slider.style.cursor = " ";
         });
 
        addEventListener('click',function(){}); 
