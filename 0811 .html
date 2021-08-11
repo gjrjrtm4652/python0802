@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JAVA</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box; 
+        }
+        .slider
+        {
+              position:  absolute;
+              left: 10%;
+              top: 30%;
+              width: 80%;
+              height: 200px;
+              overflow: hidden;
+              
+        }
+        .slider-inner
+        {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 200%;
+            display: grid;
+            grid-template-columns: repeat(5,1fr);
+            gap: 5px;
+            pointer-events: none;
+        }
+        </style>
+    <script></script>
+</head>
+<body>
+    
+    <h1>Image Show Room</h1>h1>
+    <div class ="slider">
+        <div class ="slider-inner">
+            <div class = "slider-item"></div>
+            <div class = "slider-item"></div>
+            <div class = "slider-item"></div>
+            <div class = "slider-item"></div>
+            <div class = "slider-item"></div>
+    </div>
+
+    <script>
+       let slider = document.querySelector('.slider');
+       let sliderInner = document.querySelector('.slider-inner');
+       let items = document.querySelectorAll('.slider-item');
+       //이벤트 핸들러 등록
+       let pressed = false;
+       let startx;
+       let x;
+       slider.addEventListener('mousedown',function(e){
+           //현재 이벤트에 대한 정보, 객체e
+           pressed = true;
+           //sliderInner 안에서의 마우스 x값 계산
+           startx = e.offsetx - sliderInner.offsetLeft;
+           slider.style.cursor = "grabbing";
+       });
+       slider.addEventListener('mouseenter',function(){
+            
+           slider.style.cursor = "grab";
+       });
+       slider.addEventListener('mouseup',function(){
+            
+            slider.style.cursor = "grab";
+        });
+        slider.addEventListener('mouseup',function(){
+            pressed = false;
+            slider.style.cursor = " ";
+        });
+        slider.addEventListener('mousemove',function(e){
+            if(!pressed)
+            {
+                return;
+            }
+            s.preventDefault();
+            x = e.offsetx;
+            sliderInner.style.left = `${x - startx} +'px';
+        });
+
+       addEventListener('click',function(){}); 
+       addEventListener('mousedown',function(){});
+       addEventListener('mouseup',function(){});
+       addEventListener('mouseenter',function(){});
+       addEventListener('mouseout',function(){});
+       addEventListener('mouseover',function(){});
+       addEventListener('mousemove',function(){});
+       addEventListener('contextmeny',function(){});
+    </script>
+
+    
+</body>
+</html>
